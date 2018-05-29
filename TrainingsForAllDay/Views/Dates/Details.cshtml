@@ -1,0 +1,26 @@
+﻿@model TrainingsForAllDay.Models.Date
+
+@{
+    ViewBag.Title = "Деталі за датою";
+}
+
+
+<h2>Деталі за датою тренування</h2>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Datetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datetime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Внести зміни ", "Edit", new { id = Model.DateId }) |
+    @Html.ActionLink("Повернутися до списку", "Index")
+</p>

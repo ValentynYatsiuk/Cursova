@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MyDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Date">
+          <Key>
+            <PropertyRef Name="DateId" />
+          </Key>
+          <Property Name="DateId" Type="int" Nullable="false" />
+          <Property Name="Datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Friday">
+          <Key>
+            <PropertyRef Name="FridayId" />
+          </Key>
+          <Property Name="FridayId" Type="int" Nullable="false" />
+          <Property Name="NameOfTraining" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="WeightOfTraining" Type="float" Nullable="false" />
+          <Property Name="Approach" Type="int" Nullable="false" />
+          <Property Name="Appr1" Type="int" Nullable="false" />
+          <Property Name="Appr2" Type="int" Nullable="false" />
+          <Property Name="Appr3" Type="int" Nullable="false" />
+          <Property Name="Appr4" Type="int" Nullable="false" />
+          <Property Name="Appr5" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monday">
+          <Key>
+            <PropertyRef Name="MondayId" />
+          </Key>
+          <Property Name="MondayId" Type="int" Nullable="false" />
+          <Property Name="NameOfTraining" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="WeightOfTraining" Type="float" Nullable="false" />
+          <Property Name="Approach" Type="int" Nullable="false" />
+          <Property Name="Appr1" Type="int" />
+          <Property Name="Appr2" Type="int" />
+          <Property Name="Appr3" Type="int" />
+          <Property Name="Appr4" Type="int" />
+          <Property Name="Appr5" Type="int" />
+        </EntityType>
+        <EntityType Name="Wednesday">
+          <Key>
+            <PropertyRef Name="WednesdayId" />
+          </Key>
+          <Property Name="WednesdayId" Type="int" Nullable="false" />
+          <Property Name="NameOfTraining" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="WeightOfTraining" Type="float" Nullable="false" />
+          <Property Name="Approach" Type="int" Nullable="false" />
+          <Property Name="Appr1" Type="int" />
+          <Property Name="Appr2" Type="int" />
+          <Property Name="Appr3" Type="int" />
+          <Property Name="Appr4" Type="int" />
+          <Property Name="Appr5" Type="int" />
+        </EntityType>
+        <EntityContainer Name="MyDatabaseModelStoreContainer">
+          <EntitySet Name="Date" EntityType="Self.Date" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Friday" EntityType="Self.Friday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monday" EntityType="Self.Monday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wednesday" EntityType="Self.Wednesday" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Date">
+          <Key>
+            <PropertyRef Name="DateId" />
+          </Key>
+          <Property Name="DateId" Type="Int32" Nullable="false" />
+          <Property Name="Datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Friday" Relationship="MyDatabaseModel.DateFriday" FromRole="Date" ToRole="Friday" />
+          <NavigationProperty Name="Monday" Relationship="MyDatabaseModel.DateMonday" FromRole="Date" ToRole="Monday" />
+          <NavigationProperty Name="Wednesday" Relationship="MyDatabaseModel.DateWednesday" FromRole="Date" ToRole="Wednesday" />
+        </EntityType>
+        <EntityType Name="Friday">
+          <Key>
+            <PropertyRef Name="FridayId" />
+          </Key>
+          <Property Name="FridayId" Type="Int32" Nullable="false" />
+          <Property Name="NameOfTraining" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WeightOfTraining" Type="Double" Nullable="false" />
+          <Property Name="Approach" Type="Int32" Nullable="false" />
+          <Property Name="Appr1" Type="Int32" Nullable="false" />
+          <Property Name="Appr2" Type="Int32" Nullable="false" />
+          <Property Name="Appr3" Type="Int32" Nullable="false" />
+          <Property Name="Appr4" Type="Int32" Nullable="false" />
+          <Property Name="Appr5" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Date" Relationship="MyDatabaseModel.DateFriday" FromRole="Friday" ToRole="Date" />
+          <Property Name="DateDateId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monday">
+          <Key>
+            <PropertyRef Name="MondayId" />
+          </Key>
+          <Property Name="MondayId" Type="Int32" Nullable="false" />
+          <Property Name="NameOfTraining" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WeightOfTraining" Type="Double" Nullable="false" />
+          <Property Name="Approach" Type="Int32" Nullable="false" />
+          <Property Name="Appr1" Type="Int32" />
+          <Property Name="Appr2" Type="Int32" />
+          <Property Name="Appr3" Type="Int32" />
+          <Property Name="Appr4" Type="Int32" />
+          <Property Name="Appr5" Type="Int32" />
+          <NavigationProperty Name="Date" Relationship="MyDatabaseModel.DateMonday" FromRole="Monday" ToRole="Date" />
+          <Property Name="DateDateId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wednesday">
+          <Key>
+            <PropertyRef Name="WednesdayId" />
+          </Key>
+          <Property Name="WednesdayId" Type="Int32" Nullable="false" />
+          <Property Name="NameOfTraining" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WeightOfTraining" Type="Double" Nullable="false" />
+          <Property Name="Approach" Type="Int32" Nullable="false" />
+          <Property Name="Appr1" Type="Int32" />
+          <Property Name="Appr2" Type="Int32" />
+          <Property Name="Appr3" Type="Int32" />
+          <Property Name="Appr4" Type="Int32" />
+          <Property Name="Appr5" Type="Int32" />
+          <NavigationProperty Name="Date" Relationship="MyDatabaseModel.DateWednesday" FromRole="Wednesday" ToRole="Date" />
+          <Property Name="DateDateId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MyDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Date" EntityType="Self.Date" />
+          <EntitySet Name="Friday" EntityType="Self.Friday" />
+          <EntitySet Name="Monday" EntityType="Self.Monday" />
+          <EntitySet Name="Wednesday" EntityType="Self.Wednesday" />
+          <AssociationSet Name="DateFriday" Association="MyDatabaseModel.DateFriday">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Friday" EntitySet="Friday" />
+          </AssociationSet>
+          <AssociationSet Name="DateMonday" Association="MyDatabaseModel.DateMonday">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Monday" EntitySet="Monday" />
+          </AssociationSet>
+          <AssociationSet Name="DateWednesday" Association="MyDatabaseModel.DateWednesday">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Wednesday" EntitySet="Wednesday" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="DateFriday">
+          <End Type="MyDatabaseModel.Date" Role="Date" Multiplicity="1" />
+          <End Type="MyDatabaseModel.Friday" Role="Friday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="DateId" />
+            </Principal>
+            <Dependent Role="Friday">
+              <PropertyRef Name="DateDateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DateMonday">
+          <End Type="MyDatabaseModel.Date" Role="Date" Multiplicity="1" />
+          <End Type="MyDatabaseModel.Monday" Role="Monday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="DateId" />
+            </Principal>
+            <Dependent Role="Monday">
+              <PropertyRef Name="DateDateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DateWednesday">
+          <End Type="MyDatabaseModel.Date" Role="Date" Multiplicity="1" />
+          <End Type="MyDatabaseModel.Wednesday" Role="Wednesday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="DateId" />
+            </Principal>
+            <Dependent Role="Wednesday">
+              <PropertyRef Name="DateDateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyDatabaseModelStoreContainer" CdmEntityContainer="MyDatabaseEntities">
+          <EntitySetMapping Name="Date">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Date">
+              <MappingFragment StoreEntitySet="Date">
+                <ScalarProperty Name="DateId" ColumnName="DateId" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Friday">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Friday">
+              <MappingFragment StoreEntitySet="Friday">
+                <ScalarProperty Name="FridayId" ColumnName="FridayId" />
+                <ScalarProperty Name="NameOfTraining" ColumnName="NameOfTraining" />
+                <ScalarProperty Name="WeightOfTraining" ColumnName="WeightOfTraining" />
+                <ScalarProperty Name="Approach" ColumnName="Approach" />
+                <ScalarProperty Name="Appr1" ColumnName="Appr1" />
+                <ScalarProperty Name="Appr2" ColumnName="Appr2" />
+                <ScalarProperty Name="Appr3" ColumnName="Appr3" />
+                <ScalarProperty Name="Appr4" ColumnName="Appr4" />
+                <ScalarProperty Name="Appr5" ColumnName="Appr5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monday">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Monday">
+              <MappingFragment StoreEntitySet="Monday">
+                <ScalarProperty Name="MondayId" ColumnName="MondayId" />
+                <ScalarProperty Name="NameOfTraining" ColumnName="NameOfTraining" />
+                <ScalarProperty Name="WeightOfTraining" ColumnName="WeightOfTraining" />
+                <ScalarProperty Name="Approach" ColumnName="Approach" />
+                <ScalarProperty Name="Appr1" ColumnName="Appr1" />
+                <ScalarProperty Name="Appr2" ColumnName="Appr2" />
+                <ScalarProperty Name="Appr3" ColumnName="Appr3" />
+                <ScalarProperty Name="Appr4" ColumnName="Appr4" />
+                <ScalarProperty Name="Appr5" ColumnName="Appr5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wednesday">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Wednesday">
+              <MappingFragment StoreEntitySet="Wednesday">
+                <ScalarProperty Name="WednesdayId" ColumnName="WednesdayId" />
+                <ScalarProperty Name="NameOfTraining" ColumnName="NameOfTraining" />
+                <ScalarProperty Name="WeightOfTraining" ColumnName="WeightOfTraining" />
+                <ScalarProperty Name="Approach" ColumnName="Approach" />
+                <ScalarProperty Name="Appr1" ColumnName="Appr1" />
+                <ScalarProperty Name="Appr2" ColumnName="Appr2" />
+                <ScalarProperty Name="Appr3" ColumnName="Appr3" />
+                <ScalarProperty Name="Appr4" ColumnName="Appr4" />
+                <ScalarProperty Name="Appr5" ColumnName="Appr5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

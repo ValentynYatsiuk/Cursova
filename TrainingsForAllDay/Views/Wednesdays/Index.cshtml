@@ -1,0 +1,81 @@
+﻿@model IEnumerable<TrainingsForAllDay.Models.Wednesday>
+
+@{
+    ViewBag.Title = "Середа";
+}
+
+<h2>Програма тренування на середу</h2>
+
+<p>
+    @Html.ActionLink("Додати вправу до списку", "Create")
+</p>
+<table class="table">
+    <th>
+        @Html.DisplayNameFor(model => model.Date.DateId)
+    </th>
+    <th>
+        Назва вправи
+    </th>
+    <th>
+        Додаткова вага для вправи
+    </th>
+    <th>
+        К-ть підходів
+    </th>
+    <th>
+        1-й підхід
+    </th>
+    <th>
+        2-й підхід
+    </th>
+    <th>
+        3-й підхід
+    </th>
+    <th>
+        4-й підхід
+    </th>
+    <th>
+        5-й підхід
+    </th>
+    <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date.DateId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfTraining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightOfTraining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Appr1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Appr2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Appr3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Appr4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Appr5)
+            </td>
+            <td>
+                @Html.ActionLink("Внести зміни", "Edit", new { id = item.WednesdayId }) |
+                @Html.ActionLink("Детальніше", "Details", new { id = item.WednesdayId }) |
+                @Html.ActionLink("Видалити вправу", "Delete",new { id = item.WednesdayId })
+            </td>
+        </tr>
+    }
+
+</table>

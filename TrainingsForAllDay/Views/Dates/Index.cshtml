@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TrainingsForAllDay.Models.Date>
+
+@{
+    ViewBag.Title = "Тренування (Дата)";
+}
+
+<h2>Дати тренувань</h2>
+
+<p>
+    @Html.ActionLink("Додати дату тренування", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Дата тренування та час
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datetime)
+        </td>
+        <td>
+            @Html.ActionLink("Внести зміну", "Edit", new { id=item.DateId }) |
+            @Html.ActionLink("Деталі", "Details", new { id=item.DateId }) |
+            @Html.ActionLink("Видалити", "Delete", new { id=item.DateId })
+        </td>
+    </tr>
+}
+
+</table>
