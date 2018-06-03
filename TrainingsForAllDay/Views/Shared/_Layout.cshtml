@@ -17,12 +17,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("My Training Journal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашня сторінка", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Трішки про нас", "About", "Home")</li>
+
+                    <li>@Html.ActionLink("Корисна інформація для тренування", "About", "Home")</li>
                     <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Список дат тренувань", "Index", "Dates")</li>
                     <li>@Html.ActionLink("Понеділок", "Index", "Mondays")</li>
@@ -31,7 +31,7 @@
 
 
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <!--- Html.Partial("_LoginPartial") -->
             </div>
         </div>
     </div>

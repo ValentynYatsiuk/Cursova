@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 
 namespace TrainingsForAllDay.Models
-{
+{   
+
     public class MondayModel
-    {
+    {   
         public int MondayID { get; set; }
         public string NameOfTraining { get; set; }
         public float WeightOFTraining { get; set; }

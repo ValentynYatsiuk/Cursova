@@ -5,8 +5,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Linq.Expressions;
 using System.Web.Mvc;
 using TrainingsForAllDay.Models;
+
+
 
 namespace TrainingsForAllDay.Controllers
 {
@@ -32,7 +35,7 @@ namespace TrainingsForAllDay.Controllers
             {
                 return HttpNotFound();
             }
-            return View(date);
+            return View(date);          
         }
 
         // GET: Dates/Create

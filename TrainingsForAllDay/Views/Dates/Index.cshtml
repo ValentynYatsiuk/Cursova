@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.DateId)
+        </th>
+        <th>
             Дата тренування та час
         </th>
         <th></th>
@@ -20,12 +23,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Datetime)
+            @Html.DisplayFor(modelItem=>item.DateId)
         </td>
         <td>
-            @Html.ActionLink("Внести зміну", "Edit", new { id=item.DateId }) |
-            @Html.ActionLink("Деталі", "Details", new { id=item.DateId }) |
-            @Html.ActionLink("Видалити", "Delete", new { id=item.DateId })
+            @Html.DisplayFor(modelItem => item.Datetime)
+        </td>
+
+        <td>
+            @Html.ActionLink("Внести зміну", "Edit", new { id = item.DateId }) |
+            @Html.ActionLink("Деталі", "Details", new { id = item.DateId }) |
+            @Html.ActionLink("Видалити", "Delete", new { id = item.DateId })
         </td>
     </tr>
 }
